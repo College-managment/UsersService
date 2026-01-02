@@ -22,13 +22,25 @@ END
 GO
 
 CREATE PROCEDURE usp_UpdateUser
-	@Id INT,
-	@Email NVARCHAR(255)
+	@Id		INT,
+	@Email	NVARCHAR(255)
 AS
 BEGIN
 	SET NOCOUNT ON;
 	UPDATE Users
 	SET Email = @Email, UpdatedDate = SYSUTCDATETIME()
+	WHERE Id = @Id
+END
+GO
+
+CREATE PROCEDURE usp_UpdatePassword
+	@Id				INT,
+	@PasswordHash	NVARCHAR(400)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE Users
+	SET PasswordHash = @PasswordHash, UpdatedDate = SYSUTCDATETIME()
 	WHERE Id = @Id
 END
 GO
