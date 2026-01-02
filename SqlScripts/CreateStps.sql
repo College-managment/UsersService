@@ -53,3 +53,14 @@ BEGIN
 	FROM Users
 END
 GO
+
+CREATE PROCEDURE usp_GetUserByEmail
+	@Email NVARCHAR(255)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Id, Email, PasswordHash, IsActive, CreatedDate, UpdatedDate
+	FROM Users
+	Where Email = @Email
+END
+GO
