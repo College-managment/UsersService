@@ -10,3 +10,14 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE usp_DeactivateUser
+	@Id INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE Users
+	SET IsActive = 0
+	WHERE Id = @Id
+END
+GO
+
