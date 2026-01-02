@@ -33,7 +33,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE usp_UpdatePassword
+CREATE PROCEDURE usp_UpdateUserPassword
 	@Id				INT,
 	@PasswordHash	NVARCHAR(400)
 AS
@@ -42,5 +42,14 @@ BEGIN
 	UPDATE Users
 	SET PasswordHash = @PasswordHash, UpdatedDate = SYSUTCDATETIME()
 	WHERE Id = @Id
+END
+GO
+
+CREATE PROCEDURE usp_GetAllUsers
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Id, Email, PasswordHash, IsActive, CreatedDate, UpdatedDate
+	FROM Users
 END
 GO
