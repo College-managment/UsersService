@@ -1,4 +1,4 @@
-using UsersService.Repositories;
+using UsersService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
