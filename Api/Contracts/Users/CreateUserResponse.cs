@@ -1,4 +1,4 @@
 ﻿namespace UsersService.Api.Contracts.Users
 {
-    public sealed record CreateUserResponse(string UserId, string Email);
+    public sealed record CreateUserResponse(int UserId, string Email);
 }
