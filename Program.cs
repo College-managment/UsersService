@@ -1,3 +1,5 @@
+using FluentValidation;
+using UsersService.Api.Validations;
 using UsersService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IUsersRepository, UsersRepository>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateUserRequestValidator>();
 
 var app = builder.Build();
 
